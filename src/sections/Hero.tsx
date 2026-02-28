@@ -5,15 +5,7 @@ export default function Hero() {
   return (
     <section style={{ padding: '56px 0 22px' }}>
       <div className="container">
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 24,
-            alignItems: 'stretch',
-          }}
-        >
+        <div className="heroGrid">
           {/* LEFT: INFO */}
           <Card>
             <div
@@ -25,19 +17,14 @@ export default function Hero() {
                 gap: 14,
               }}
             >
-              <h1 style={{ margin: 0, fontSize: 36 }}>
-                {profile.name}
-              </h1>
+              <h1 style={{ margin: 0, fontSize: 36 }}>{profile.name}</h1>
 
               <p style={{ margin: 0, color: 'var(--muted)', fontSize: 18 }}>
                 {profile.title}
               </p>
 
-              <p style={{ marginTop: 8 }}>
-                {profile.blurb}
-              </p>
+              <p style={{ marginTop: 8 }}>{profile.blurb}</p>
 
-              {/* Extra Info */}
               <div style={{ marginTop: 10 }}>
                 <div style={{ color: 'var(--muted)', fontSize: 13 }}>Location</div>
                 <div>Israel</div>
@@ -64,36 +51,20 @@ export default function Hero() {
                     LinkedIn
                   </a>
                 )}
-                <a className="btn" href={profile.links.resume} target="_blank" rel="noreferrer">
-                  Resume
+
+                {/* Resume download (file is in public/resume.pdf) */}
+                <a className="btn" href="/resume.pdf" download>
+                  Resume (PDF)
                 </a>
               </div>
             </div>
           </Card>
 
           {/* RIGHT: PHOTO */}
-          <div
-            style={{
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <img
-              src="/profile.jpg"
-              alt={profile.name}
-              style={{
-                width: '100%',
-                height: 500,
-                objectFit: 'cover',
-                borderRadius: 16,
-              }}
-            />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/profile.jpg" alt={profile.name} className="heroPhoto" />
           </div>
-
         </div>
-
       </div>
     </section>
   )
